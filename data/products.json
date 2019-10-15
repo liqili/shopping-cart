@@ -1,0 +1,44 @@
+[
+  {
+    "productId": 1,
+    "name": "Sledgehammer",
+    "price": 125.76,
+    "description": "A song by English rock musician Peter Gabriel. ",
+    "image": "/images/1.png"
+  },
+  {
+    "productId": 2,
+    "name": "Axe",
+    "price": 190.51,
+    "description": "An axe is an implement",
+    "image": "/images/2.png"
+  },
+  {
+    "productId": 3,
+    "name": "Bandsaw",
+    "price": 562.14,
+    "description": "A bandsaw (also written band saw) is a power saw",
+    "image": "/images/3.png"
+  },
+  {
+    "productId": 4,
+    "name": "Chisel",
+    "price": 13.90,
+    "description": "A tool with a characteristically shaped cutting edge",
+    "image": "/images/4.png"
+  },
+  {
+    "productId": 5,
+    "name": "Hacksaw",
+    "price": 19.45,
+    "description": "A hacksaw is a fine-toothed saw",
+    "image": "/images/5.png"
+  },
+  {
+    "productId": 6,
+    "name": "Docker Baby",
+    "price": 125.99,
+    "description": "",
+    "image": "/images/6.png"
+  }
+]

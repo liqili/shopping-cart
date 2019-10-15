@@ -1,0 +1,44 @@
+//@flow
+
+
+import thunk from 'redux-thunk';
+import {
+    createStore,
+    applyMiddleware,
+} from 'redux';
+import {
+    persistStore,
+    persistReducer
+} from 'redux-persist';
+import promiseMiddleware from 'redux-promise-middleware'
+import storage from 'redux-persist/lib/storage';
+import reducers from './reducers';
+
+const logger = store => next => action => {
+    if (typeof action === 'function') {console.log('dispatching a function');}
+    else {console.log('dispatching', action);}
+    const result = next(action);
+    console.log('next state', store.getState());
+    return result;
+}
+const middlewares = [
+    logger,
+    thunk,
+    promiseMiddleware({
+        promiseTypeSuffixes: ['REQ', 'ACK', 'ERR'],
+    }),
+];
+
+const createAppStore = applyMiddleware(...middlewares)(createStore);
+const persistConfig = {
+    key: 'root',
+    storage: storage,
+    transform: [],
+};
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+export default function configureStore(onComplete: () => void) {
+    const store = createAppStore(reducers);
+    persistStore(store, null, onComplete);
+    return store;
+}
